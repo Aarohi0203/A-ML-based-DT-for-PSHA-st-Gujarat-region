@@ -1,0 +1,59 @@
+=============================================================
+  PSHA DIGITAL TWIN — PERFORMANCE REPORT (REVISED)
+  Best Model: SVR | Site-Based Split | Gujarat Seismic Hazard
+  Generated: 26-May-2026 23:22:38
+=============================================================
+
+PIPELINE:
+  Split method : Site-based (no spatial leakage)
+  Features     : 17 (no Lat/Lon; incl. engineered)
+  Normalisation: Training set statistics only
+
+MODEL PERFORMANCE (SVR — Best Model):
+  Output                    Train R2   Test R2       Gap
+  ----------------------------------------------------
+  PGA 2%/50yr                 0.9834    0.9759    0.0075
+  PGA 10%/50yr                0.9841    0.9711    0.0130
+  PGA 2%/100yr                0.9894    0.9841    0.0053
+  PGA 10%/100yr               0.9838    0.9725    0.0113
+  Mean                        0.9852    0.9759    0.0093
+
+  Verdict: Generalises well — no overfitting
+
+UNCERTAINTY (90% CI, ensemble=200):
+  Output                    Mean CV%%  Max CV%%
+  --------------------------------------------
+  PGA 2%/50yr                  21.51    428.97
+  PGA 10%/50yr                 37.48   1307.08
+  PGA 2%/100yr                 43.49   1338.51
+  PGA 10%/100yr                40.15   1345.66
+
+DRIFT MONITORING (200 simulated events):
+  Drift alerts  : 0
+  Retrain alerts: 0
+  Model status  : STABLE
+
+FEATURES USED (17):
+  [ 1] No of Active Faults
+  [ 2] Length of fault (Lf):
+  [ 3] No of Earthquake associated to Faults
+  [ 4] Max. Hypocentre distance(Rmax)
+  [ 5] Min. Hypocentre distance(Rmin)
+  [ 6] Min. Magnitude (M0):
+  [ 7] Max. Magnitude (Mu):
+  [ 8] value of a
+  [ 9] value of b
+  [10] NameOfFault
+  [11] AttenuationModel
+  [12] Rratio
+  [13] Mrange
+  [14] logRmax
+  [15] logRmin
+  [16] logFaultLen
+  [17] DistMag
+
+NOTE: City predictions for cities outside the 4 training cities
+are extrapolations. SVR (RBF kernel) extrapolates smoothly but
+uncertainty is higher for non-training cities (see Step 3 CI).
+
+=============================================================
